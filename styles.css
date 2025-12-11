@@ -1,0 +1,437 @@
+/* --- Google Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* --- Background & Overall Layout --- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #263b73 0, #0b1320 45%, #02040a 100%);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* Soft overlay “snow fog” layer for effect */
+.snow-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 120px 120px, 80px 80px;
+  background-position: 0 0, 40px 60px;
+  opacity: 0.45;
+  animation: snowDrift 40s linear infinite;
+  z-index: 0;
+}
+
+@keyframes snowDrift {
+  from {
+    transform: translateY(-40px);
+  }
+  to {
+    transform: translateY(40px);
+  }
+}
+
+/* --- Individual Falling Snowflakes --- */
+.snowflakes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.snowflake {
+  position: fixed;
+  top: -10%;
+  color: #ffffff;
+  font-size: 18px;
+  opacity: 0.85;
+  animation-name: snowFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Random-ish positions and timings using nth-child */
+.snowflake:nth-child(1) {
+  left: 10%;
+  animation-duration: 12s;
+  animation-delay: 0s;
+}
+.snowflake:nth-child(2) {
+  left: 20%;
+  animation-duration: 14s;
+  animation-delay: 2s;
+}
+.snowflake:nth-child(3) {
+  left: 30%;
+  animation-duration: 11s;
+  animation-delay: 4s;
+}
+.snowflake:nth-child(4) {
+  left: 40%;
+  animation-duration: 13s;
+  animation-delay: 1s;
+}
+.snowflake:nth-child(5) {
+  left: 50%;
+  animation-duration: 16s;
+  animation-delay: 3s;
+}
+.snowflake:nth-child(6) {
+  left: 60%;
+  animation-duration: 10s;
+  animation-delay: 5s;
+}
+.snowflake:nth-child(7) {
+  left: 70%;
+  animation-duration: 15s;
+  animation-delay: 1.5s;
+}
+.snowflake:nth-child(8) {
+  left: 80%;
+  animation-duration: 12s;
+  animation-delay: 4.5s;
+}
+.snowflake:nth-child(9) {
+  left: 90%;
+  animation-duration: 14s;
+  animation-delay: 2.5s;
+}
+.snowflake:nth-child(10) {
+  left: 15%;
+  animation-duration: 18s;
+  animation-delay: 6s;
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(50vh) translateX(10px);
+  }
+  100% {
+    transform: translateY(110vh) translateX(-10px);
+  }
+}
+
+/* --- Main Card --- */
+.container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.96);
+  color: #1a1a1a;
+  width: 90%;
+  max-width: 480px;
+  padding: 28px 30px 24px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    0 0 25px rgba(255, 255, 255, 0.16);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+  animation: cardFloat 6s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* --- Header Icons --- */
+.header-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.header-icons .icon {
+  font-size: 28px;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.3));
+}
+
+/* --- Title & Subtitle --- */
+h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #b60000;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #333;
+  margin: 10px 0 18px;
+  line-height: 1.5;
+}
+
+/* --- Lights Row --- */
+.lights-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 18px;
+  font-size: 18px;
+  animation: twinkle 1.6s linear infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+}
+
+/* --- Form Block --- */
+.form-block {
+  background: #fdf5f5;
+  border-radius: 16px;
+  padding: 16px 14px 18px;
+  border: 1px solid #f1d6d6;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #222;
+  font-weight: 600;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 2px solid #d0d0d0;
+  margin-bottom: 16px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ffffff;
+}
+
+select:focus {
+  border-color: #b60000;
+  box-shadow: 0 0 0 3px rgba(182, 0, 0, 0.15);
+}
+
+/* --- Button --- */
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #b60000, #ff4b4b);
+  box-shadow: 0 8px 16px rgba(182, 0, 0, 0.45);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(182, 0, 0, 0.6);
+  filter: brightness(1.05);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 8px rgba(182, 0, 0, 0.3);
+}
+
+/* --- Result Box (with confirmation animation) --- */
+.result {
+  margin-top: 18px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+  pointer-events: none;
+}
+
+.result.visible {
+  animation: resultPop 0.45s ease-out forwards;
+}
+
+@keyframes resultPop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.result-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #006b2d;
+}
+
+.check-icon {
+  font-size: 20px;
+}
+
+/* Assignments list */
+#assignmentsList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#assignmentsList li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  margin: 6px 0;
+  background: #ffffff;
+  border-radius: 10px;
+  font-size: 15px;
+  border-left: 5px solid #006b2d;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06);
+}
+
+#assignmentsList li::before {
+  content: "🎁";
+  font-size: 18px;
+}
+
+.note {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #555;
+}
+
+/* --- Error Box --- */
+.error {
+  margin-top: 14px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #ffdddd;
+  color: #990000;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* --- Footer Icons --- */
+.footer-icons {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 20px;
+}
+
+/* --- Utility --- */
+.hidden {
+  display: none;
+}
+
+/* --- Locked select visual --- */
+select.locked {
+  background-color: #eee;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* --- Admin panel styles --- */
+.admin-panel {
+  margin-top: 14px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.admin-panel details {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  padding: 8px 10px 10px;
+  border: 1px dashed #b60000;
+}
+
+.admin-panel summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #b60000;
+  list-style: none;
+}
+
+.admin-panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.admin-note {
+  margin: 6px 0 8px;
+  color: #555;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+}
+
+.admin-btn {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #444, #222);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.admin-btn:hover {
+  filter: brightness(1.05);
+}
+
+.admin-status {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.admin-status-success {
+  color: #006b2d;
+}
+
+.admin-status-error {
+  color: #b00020;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Secret Santa</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Soft “foggy snow” overlay -->
+  <div class="snow-layer"></div>
+
+  <!-- Individual falling snowflakes -->
+  <div class="snowflakes" aria-hidden="true">
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+  </div>
+
+  <div class="container">
+    <div class="header-icons">
+      <span class="icon">🎅</span>
+      <span class="icon">🎄</span>
+      <span class="icon">🎁</span>
+    </div>
+
+    <h1>Secret Santa Draw</h1>
+    <p class="subtitle">
+      Ho ho ho! Select your name to reveal your <strong>secret gift assignments</strong>.<br />
+      Each pick is unique, saved, and only for your eyes 👀
+    </p>
+
+    <div class="lights-row">
+      <span>🟢</span><span>🔴</span><span>🟡</span><span>🔵</span>
+      <span>🟢</span><span>🔴</span><span>🟡</span><span>🔵</span>
+    </div>
+
+    <div class="form-block">
+      <label for="participantSelect">Who are you today?</label>
+      <select id="participantSelect">
+        <option value="">-- Select your name --</option>
+        <option value="David">🎅 David</option>
+        <option value="Rocio">🎀 Rocio</option>
+        <option value="Dana">🎁 Dana</option>
+        <option value="Gianna">✨ Gianna</option>
+      </select>
+
+      <button id="getAssignmentsBtn">
+        Reveal my Secret Santa picks 🎄
+      </button>
+
+      <div id="result" class="result hidden">
+        <h2 class="result-title">
+          <span class="check-icon">✅</span>
+          Your Assignments
+        </h2>
+        <ul id="assignmentsList"></ul>
+        <p class="note">
+          Take a screenshot or write these down — your matches won’t change! 🎁
+        </p>
+      </div>
+
+      <div id="error" class="error hidden"></div>
+    </div>
+
+        <div class="footer-icons">
+      <span>🎄</span><span>🎁</span><span>🧦</span><span>⭐</span>
+    </div>
+
+    <!-- Admin reset section -->
+    <div class="admin-panel">
+      <details>
+        <summary>Admin: Reset all assignments</summary>
+        <p class="admin-note">
+          This will clear all Secret Santa assignments so everyone can draw again.
+        </p>
+        <input
+          type="password"
+          id="adminToken"
+          class="admin-input"
+          placeholder="Enter admin password"
+        />
+        <button id="adminResetBtn" class="admin-btn">
+          Reset all assignments
+        </button>
+        <div id="adminStatus" class="admin-status"></div>
+      </details>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
