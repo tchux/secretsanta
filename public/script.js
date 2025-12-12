@@ -1,3 +1,5 @@
+alert("script.js loaded!");
+
 const participantSelect = document.getElementById("participantSelect");
 const getAssignmentsBtn = document.getElementById("getAssignmentsBtn");
 const resultDiv = document.getElementById("result");
@@ -167,4 +169,5 @@ if (adminResetBtn) {
     }
   });
 }
+
 
