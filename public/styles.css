@@ -435,3 +435,29 @@ select.locked {
 .admin-status-error {
   color: #b00020;
 }
+
+/* ---------- Mobile Optimization ---------- */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  select {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 20px 18px;
+  }
+}
+
+
