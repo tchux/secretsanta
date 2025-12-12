@@ -11,6 +11,14 @@ const adminStatusDiv = document.getElementById("adminStatus");
 
 const API_BASE = "";
 
+// existing static middleware:
+app.use(express.static(path.join(__dirname, "public")));
+
+// ADD THIS RIGHT AFTER IT:
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 // -----------------------------
 //  On Page Load — Check Lock
 // -----------------------------
@@ -159,3 +167,4 @@ if (adminResetBtn) {
     }
   });
 }
+
